@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Drag.cs" />
     <Compile Include="Ed25519.cs" />
-    <Compile Include="LuffyAuth.cs" />
+    <Compile Include="ArcLicense.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

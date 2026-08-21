@@ -1,6 +1,6 @@
-# LuffyAuth C# Example Project
+# ArcLicense C# Example Project
 
-Official C# example implementation for **LuffyAuth** (software licensing & authentication system). Includes both **Console** and **WinForms** application templates.
+Official C# example implementation for **ArcLicense** (software licensing & authentication system). Includes both **Console** and **WinForms** application templates.
 
 ## 🔗 Official Links
 
@@ -16,7 +16,7 @@ Official C# example implementation for **LuffyAuth** (software licensing & authe
 2. Configure your application credentials:
 
 ```csharp
-public static api LuffyAuthApp = new api(
+public static api ArcLicenseApp = new api(
     name: "Testing",                  // Application Name
     ownerid: "xrfNty6okO",             // Account Owner ID
     version: "1.0",                   // Application Version
@@ -27,11 +27,11 @@ public static api LuffyAuthApp = new api(
 3. Call `init()` before executing any authentication actions:
 
 ```csharp
-LuffyAuthApp.init();
+ArcLicenseApp.init();
 
-if (!LuffyAuthApp.response.success)
+if (!ArcLicenseApp.response.success)
 {
-    Console.WriteLine("Init Failed: " + LuffyAuthApp.response.message);
+    Console.WriteLine("Init Failed: " + ArcLicenseApp.response.message);
     return;
 }
 ```

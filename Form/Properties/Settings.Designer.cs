@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuffyAuth.Properties
+namespace ArcLicense.Properties
 {
 
 

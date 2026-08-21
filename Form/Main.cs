@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace LuffyAuth
+namespace ArcLicense
 {
     public partial class Main : Form
     {
@@ -12,7 +12,7 @@ namespace LuffyAuth
         * 
         * WATCH THIS VIDEO TO SETUP APPLICATION: https://www.youtube.com/watch?v=RfDTdiBq4_o
         * 
-	     * READ HERE TO LEARN ABOUT KEYAUTH FUNCTIONS https://github.com/LuffyAuth/LuffyAuth-CSHARP-Example#keyauthapp-instance-definition
+	     * READ HERE TO LEARN ABOUT KEYAUTH FUNCTIONS https://github.com/luffycpp/ArcLicense-CSHARP-Example#keyauthapp-instance-definition
 		 *
         */
 
@@ -27,17 +27,17 @@ namespace LuffyAuth
 
         private async void Main_Load(object sender, EventArgs e)
         {
-            userDataField.Items.Add($"Username: {Login.LuffyAuthApp.user_data.username}");
-            userDataField.Items.Add($"License: {Login.LuffyAuthApp.user_data.subscriptions[0].key}"); // this can be used if the user used a license, username, and password for register. It'll display the license assigned to the user
-            userDataField.Items.Add($"Expires: {Login.LuffyAuthApp.user_data.subscriptions[0].expiration}"); // this has been changed from expiry to expiration
-            userDataField.Items.Add($"Subscription: {Login.LuffyAuthApp.user_data.subscriptions[0].subscription}");
-            userDataField.Items.Add($"IP: {Login.LuffyAuthApp.user_data.ip}");
-            userDataField.Items.Add($"HWID: {Login.LuffyAuthApp.user_data.hwid}");
-            userDataField.Items.Add($"Creation Date: {Login.LuffyAuthApp.user_data.CreationDate}"); // this has a capital "C" , if you use a lowercase "c" it won't convert unix
-            userDataField.Items.Add($"Last Login: {Login.LuffyAuthApp.user_data.LastLoginDate}"); // this has a capital "L", if you use a lowercase "l" it won't convert unix
-            userDataField.Items.Add($"Time Left: {Login.LuffyAuthApp.expirydaysleft()}");
+            userDataField.Items.Add($"Username: {Login.ArcLicenseApp.user_data.username}");
+            userDataField.Items.Add($"License: {Login.ArcLicenseApp.user_data.subscriptions[0].key}"); // this can be used if the user used a license, username, and password for register. It'll display the license assigned to the user
+            userDataField.Items.Add($"Expires: {Login.ArcLicenseApp.user_data.subscriptions[0].expiration}"); // this has been changed from expiry to expiration
+            userDataField.Items.Add($"Subscription: {Login.ArcLicenseApp.user_data.subscriptions[0].subscription}");
+            userDataField.Items.Add($"IP: {Login.ArcLicenseApp.user_data.ip}");
+            userDataField.Items.Add($"HWID: {Login.ArcLicenseApp.user_data.hwid}");
+            userDataField.Items.Add($"Creation Date: {Login.ArcLicenseApp.user_data.CreationDate}"); // this has a capital "C" , if you use a lowercase "c" it won't convert unix
+            userDataField.Items.Add($"Last Login: {Login.ArcLicenseApp.user_data.LastLoginDate}"); // this has a capital "L", if you use a lowercase "l" it won't convert unix
+            userDataField.Items.Add($"Time Left: {Login.ArcLicenseApp.expirydaysleft()}");
 
-            var onlineUsers = await Login.LuffyAuthApp.fetchOnline();
+            var onlineUsers = await Login.ArcLicenseApp.fetchOnline();
             if (onlineUsers != null)
             {
                 Console.Write("\n Online users: ");
@@ -53,7 +53,7 @@ namespace LuffyAuth
         {
             for (var i = 0; i < len; i++)
             {
-                if (Login.LuffyAuthApp.user_data.subscriptions[i].subscription == name)
+                if (Login.ArcLicenseApp.user_data.subscriptions[i].subscription == name)
                 {
                     return true;
                 }
@@ -67,10 +67,10 @@ namespace LuffyAuth
             timer1.Interval = 15000; // get chat messages every 15 seconds
             if (!String.IsNullOrEmpty(chatchannel))
             {
-                var messages = await Login.LuffyAuthApp.chatget(chatchannel);
+                var messages = await Login.ArcLicenseApp.chatget(chatchannel);
                 if (messages == null)
                 {
-                    chatroomGrid.Rows.Insert(0, "LuffyAuth", "No Chat Messages", api.UnixTimeToDateTime(DateTimeOffset.Now.ToUnixTimeSeconds()));
+                    chatroomGrid.Rows.Insert(0, "ArcLicense", "No Chat Messages", api.UnixTimeToDateTime(DateTimeOffset.Now.ToUnixTimeSeconds()));
                 }
                 else
                 {
@@ -83,62 +83,62 @@ namespace LuffyAuth
             else
             {
                 timer1.Stop();
-                chatroomGrid.Rows.Insert(0, "LuffyAuth", "No Chat Messages", api.UnixTimeToDateTime(DateTimeOffset.Now.ToUnixTimeSeconds()));
+                chatroomGrid.Rows.Insert(0, "ArcLicense", "No Chat Messages", api.UnixTimeToDateTime(DateTimeOffset.Now.ToUnixTimeSeconds()));
             }
         }
 
         private async void sendWebhookBtn_Click_1(object sender, EventArgs e)
         {
-            await Login.LuffyAuthApp.webhook(webhookID.Text, webhookBaseURL.Text);
-            MessageBox.Show(Login.LuffyAuthApp.response.message);
+            await Login.ArcLicenseApp.webhook(webhookID.Text, webhookBaseURL.Text);
+            MessageBox.Show(Login.ArcLicenseApp.response.message);
         }
 
         private async void setUserVarBtn_Click_1(object sender, EventArgs e)
         {
-            await Login.LuffyAuthApp.setvar(varField.Text, varDataField.Text);
-            MessageBox.Show(Login.LuffyAuthApp.response.message);
+            await Login.ArcLicenseApp.setvar(varField.Text, varDataField.Text);
+            MessageBox.Show(Login.ArcLicenseApp.response.message);
         }
 
         private async void fetchUserVarBtn_Click_1(object sender, EventArgs e)
         {
-            await Login.LuffyAuthApp.getvar(varField.Text);
-            MessageBox.Show(Login.LuffyAuthApp.response.message);
+            await Login.ArcLicenseApp.getvar(varField.Text);
+            MessageBox.Show(Login.ArcLicenseApp.response.message);
         }
 
         private async void sendLogDataBtn_Click(object sender, EventArgs e)
         {
-            await Login.LuffyAuthApp.log(logDataField.Text);
-            MessageBox.Show(Login.LuffyAuthApp.response.message);
+            await Login.ArcLicenseApp.log(logDataField.Text);
+            MessageBox.Show(Login.ArcLicenseApp.response.message);
         }
 
         private async void checkSessionBtn_Click_1(object sender, EventArgs e)
         {
-            await Login.LuffyAuthApp.check();
-            MessageBox.Show(Login.LuffyAuthApp.response.message);
+            await Login.ArcLicenseApp.check();
+            MessageBox.Show(Login.ArcLicenseApp.response.message);
         }
 
         private async void fetchGlobalVariableBtn_Click_1(object sender, EventArgs e)
         {
-            string globalVal = await Login.LuffyAuthApp.var(globalVariableField.Text);
+            string globalVal = await Login.ArcLicenseApp.var(globalVariableField.Text);
             MessageBox.Show(globalVal);
-            MessageBox.Show(Login.LuffyAuthApp.response.message); // optional since it'll show the response in the var (if it's valid or not)
+            MessageBox.Show(Login.ArcLicenseApp.response.message); // optional since it'll show the response in the var (if it's valid or not)
         }
 
         private async void sendMsgBtn_Click_1(object sender, EventArgs e)
         {
-            if (await Login.LuffyAuthApp.chatsend(chatMsgField.Text, chatchannel))
+            if (await Login.ArcLicenseApp.chatsend(chatMsgField.Text, chatchannel))
             {
-                chatroomGrid.Rows.Insert(0, Login.LuffyAuthApp.user_data.username, chatMsgField.Text, api.UnixTimeToDateTime(DateTimeOffset.Now.ToUnixTimeSeconds()));
+                chatroomGrid.Rows.Insert(0, Login.ArcLicenseApp.user_data.username, chatMsgField.Text, api.UnixTimeToDateTime(DateTimeOffset.Now.ToUnixTimeSeconds()));
             }
             else
             {
-                MessageBox.Show(Login.LuffyAuthApp.response.message);
+                MessageBox.Show(Login.ArcLicenseApp.response.message);
             }
         }
 
         private async void closeBtn_Click(object sender, EventArgs e)
         {
-            await Login.LuffyAuthApp.logout(); // ends the sessions once the application closes
+            await Login.ArcLicenseApp.logout(); // ends the sessions once the application closes
             Environment.Exit(0);
         }
 
@@ -149,10 +149,10 @@ namespace LuffyAuth
 
         private async void downloadFileBtn_Click(object sender, EventArgs e)
         {
-            byte[] result = await Login.LuffyAuthApp.download("");
-            if (!Login.LuffyAuthApp.response.success)
+            byte[] result = await Login.ArcLicenseApp.download("");
+            if (!Login.ArcLicenseApp.response.success)
             {
-                Console.WriteLine("\n Status: " + Login.LuffyAuthApp.response.message);
+                Console.WriteLine("\n Status: " + Login.ArcLicenseApp.response.message);
                 Thread.Sleep(2500);
                 Environment.Exit(0);
             }
@@ -164,21 +164,21 @@ namespace LuffyAuth
         {
             string code = string.IsNullOrEmpty(tfaField.Text) ? null : tfaField.Text;
 
-            await Login.LuffyAuthApp.enable2fa(code);
+            await Login.ArcLicenseApp.enable2fa(code);
 
-            MessageBox.Show(Login.LuffyAuthApp.response.message);
+            MessageBox.Show(Login.ArcLicenseApp.response.message);
         }
 
         private async void disableTfaBtn_Click(object sender, EventArgs e)
         {
-            await Login.LuffyAuthApp.disable2fa(tfaField.Text);
-            MessageBox.Show(Login.LuffyAuthApp.response.message);
+            await Login.ArcLicenseApp.disable2fa(tfaField.Text);
+            MessageBox.Show(Login.ArcLicenseApp.response.message);
         }
 
         private async void banBtn_Click(object sender, EventArgs e)
         {
-            await Login.LuffyAuthApp.ban("Testing ban function");
-            MessageBox.Show(Login.LuffyAuthApp.response.message);
+            await Login.ArcLicenseApp.ban("Testing ban function");
+            MessageBox.Show(Login.ArcLicenseApp.response.message);
         }
     }
 }

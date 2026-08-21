@@ -1,0 +1,8 @@
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Form\bin\Debug\Loader.exe.config
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Form\bin\Debug\Loader.exe
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Form\obj\Debug\Loader.csproj.AssemblyReference.cache
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Form\obj\Debug\ArcLicense.Main.resources
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Form\obj\Debug\ArcLicense.Login.resources
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Form\obj\Debug\Loader.csproj.GenerateResource.cache
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Form\obj\Debug\Loader.csproj.CoreCompileInputs.cache
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Form\obj\Debug\Loader.exe

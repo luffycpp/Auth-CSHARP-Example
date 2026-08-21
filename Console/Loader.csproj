@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ed25519.cs" />
-    <Compile Include="LuffyAuth.cs" />
+    <Compile Include="ArcLicense.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

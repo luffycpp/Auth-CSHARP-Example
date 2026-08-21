@@ -1,0 +1,6 @@
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Console\bin\Debug\Loader.exe.config
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Console\bin\Debug\Loader.exe
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Console\obj\Debug\Loader.csproj.AssemblyReference.cache
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Console\obj\Debug\Loader.csproj.CoreCompileInputs.cache
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Console\obj\Debug\Loader.exe
+C:\Users\luffy_009\Documents\GitHub\Auth-CSHARP-Example\Console\obj\Debug\Loader.exe.config

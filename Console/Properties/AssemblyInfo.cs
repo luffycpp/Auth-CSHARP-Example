@@ -7,12 +7,12 @@ using System;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Loader")]
-[assembly: AssemblyDescription("LuffyAuth Loader Example")]
+[assembly: AssemblyDescription("ArcLicense Loader Example")]
 [assembly: AssemblyConfiguration("retail")]
-[assembly: AssemblyCompany("LuffyAuth LLC")]
+[assembly: AssemblyCompany("ArcLicense LLC")]
 [assembly: AssemblyProduct("Loader")]
-[assembly: AssemblyCopyright("Copyright © LuffyAuth.cc")]
-[assembly: AssemblyTrademark("LuffyAuth")]
+[assembly: AssemblyCopyright("Copyright © ArcLicense.cc")]
+[assembly: AssemblyTrademark("ArcLicense")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

@@ -15,7 +15,7 @@ using System.Threading;
 using Cryptographic;
 using System.Runtime.InteropServices;
 
-namespace LuffyAuth
+namespace ArcLicense
 {
     public class api
     {
@@ -192,7 +192,7 @@ namespace LuffyAuth
 
             var response = req(values_to_upload);
 
-            if (response == "LuffyAuth_Invalid")
+            if (response == "ArcLicense_Invalid" || response == "KeyAuth_Invalid" || (!response.TrimStart().StartsWith("{") && !response.TrimStart().StartsWith("[")))
             {
                 error("Application not found");
                 TerminateProcess(GetCurrentProcess(), 1);
@@ -248,7 +248,7 @@ namespace LuffyAuth
         {
             if (!initialized)
             {
-                error("You must run the function LuffyAuthApp.init(); first");
+                error("You must run the function ArcLicenseApp.init(); first");
                 TerminateProcess(GetCurrentProcess(), 1);
             }
         }
@@ -518,7 +518,7 @@ namespace LuffyAuth
         }
 
         /// <summary>
-        /// Use Buttons from LuffyAuth Customer Panel
+        /// Use Buttons from ArcLicense Customer Panel
         /// </summary>
         /// <param name="button">Button Name</param>
 
@@ -1028,7 +1028,7 @@ namespace LuffyAuth
             return null;
         }
         /// <summary>
-        /// LuffyAuth acts as proxy and downlods the file in a secure way
+        /// ArcLicense acts as proxy and downlods the file in a secure way
         /// </summary>
         /// <param name="fileid">File ID</param>
         /// <returns>The bytes of the download file</returns>
@@ -1338,7 +1338,7 @@ namespace LuffyAuth
 
             string exeName = Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location);
 
-            string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "LuffyAuth", "debug", exeName);
+            string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "ArcLicense", "debug", exeName);
             if (!Directory.Exists(logDirectory))
             {
                 Directory.CreateDirectory(logDirectory);

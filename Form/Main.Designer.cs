@@ -1,4 +1,4 @@
-namespace LuffyAuth
+namespace ArcLicense
 {
     public partial class Main : global::System.Windows.Forms.Form
     {
@@ -78,7 +78,7 @@ namespace LuffyAuth
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(190, 19);
             this.label2.TabIndex = 27;
-            this.label2.Text = "LuffyAuth Official C# Example";
+            this.label2.Text = "ArcLicense Official C# Example";
             // 
             // timer1
             // 

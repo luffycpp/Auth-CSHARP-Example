@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\luffy_009\\Documents\\GitHub\\Auth-CSHARP-Example\\Console\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{31F3AC92-CD6F-4F65-A93C-0162FAD41FA6}|Loader.csproj|c:\\users\\luffy_009\\documents\\github\\auth-csharp-example\\console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31F3AC92-CD6F-4F65-A93C-0162FAD41FA6}|Loader.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31F3AC92-CD6F-4F65-A93C-0162FAD41FA6}|Loader.csproj|c:\\users\\luffy_009\\documents\\github\\auth-csharp-example\\console\\ed25519.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31F3AC92-CD6F-4F65-A93C-0162FAD41FA6}|Loader.csproj|solutionrelative:ed25519.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31F3AC92-CD6F-4F65-A93C-0162FAD41FA6}|Loader.csproj|c:\\users\\luffy_009\\documents\\github\\auth-csharp-example\\console\\arclicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31F3AC92-CD6F-4F65-A93C-0162FAD41FA6}|Loader.csproj|solutionrelative:arclicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\luffy_009\\Documents\\GitHub\\Auth-CSHARP-Example\\Console\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\luffy_009\\Documents\\GitHub\\Auth-CSHARP-Example\\Console\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T12:25:04.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ed25519.cs",
+              "DocumentMoniker": "C:\\Users\\luffy_009\\Documents\\GitHub\\Auth-CSHARP-Example\\Console\\Ed25519.cs",
+              "RelativeDocumentMoniker": "Ed25519.cs",
+              "ToolTip": "C:\\Users\\luffy_009\\Documents\\GitHub\\Auth-CSHARP-Example\\Console\\Ed25519.cs",
+              "RelativeToolTip": "Ed25519.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T12:24:42.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ArcLicense.cs",
+              "DocumentMoniker": "C:\\Users\\luffy_009\\Documents\\GitHub\\Auth-CSHARP-Example\\Console\\ArcLicense.cs",
+              "RelativeDocumentMoniker": "ArcLicense.cs",
+              "ToolTip": "C:\\Users\\luffy_009\\Documents\\GitHub\\Auth-CSHARP-Example\\Console\\ArcLicense.cs",
+              "RelativeToolTip": "ArcLicense.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T12:24:37.77Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

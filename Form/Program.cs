@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 
 
-namespace LuffyAuth
+namespace ArcLicense
 {
     static class Program
     {

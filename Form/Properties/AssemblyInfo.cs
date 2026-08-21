@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Loader")]
-[assembly: AssemblyDescription("LuffyAuth Loader Winform Example")]
+[assembly: AssemblyDescription("ArcLicense Loader Winform Example")]
 [assembly: AssemblyConfiguration("retail")]
-[assembly: AssemblyCompany("LuffyAuth LLC")]
+[assembly: AssemblyCompany("ArcLicense LLC")]
 [assembly: AssemblyProduct("Loader")]
-[assembly: AssemblyCopyright("Copyright © LuffyAuth.cc")]
+[assembly: AssemblyCopyright("Copyright © ArcLicense.cc")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

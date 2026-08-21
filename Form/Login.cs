@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Windows.Forms;
 
-namespace LuffyAuth
+namespace ArcLicense
 {
     public partial class Login : Form
     {
@@ -13,11 +13,11 @@ namespace LuffyAuth
         * 
         * WATCH THIS VIDEO TO SETUP APPLICATION: https://youtube.com/watch?v=RfDTdiBq4_o
         * 
-		 * READ HERE TO LEARN ABOUT KEYAUTH FUNCTIONS https://github.com/LuffyAuth/LuffyAuth-CSHARP-Example#keyauthapp-instance-definition
+		 * READ HERE TO LEARN ABOUT KEYAUTH FUNCTIONS https://github.com/luffycpp/ArcLicense-CSHARP-Example#keyauthapp-instance-definition
 		 *
         */
 
-        public static api LuffyAuthApp = new api(
+        public static api ArcLicenseApp = new api(
              name: "Testing", // App name
              ownerid: "xrfNty6okO", // Account ID
              version: "1.0" // Application version. Used for automatic downloads see video here https://www.youtube.com/watch?v=kW195PLCBKs
@@ -33,7 +33,7 @@ namespace LuffyAuth
         #region Misc References
         public static bool SubExist(string name)
         {
-            if(LuffyAuthApp.user_data.subscriptions.Exists(x => x.subscription == name))
+            if(ArcLicenseApp.user_data.subscriptions.Exists(x => x.subscription == name))
                 return true;
             return false;
         }
@@ -54,18 +54,18 @@ namespace LuffyAuth
 
         private async void Login_Load(object sender, EventArgs e)
         {
-            await LuffyAuthApp.init();
+            await ArcLicenseApp.init();
 
             #region Auto Update
-            if (LuffyAuthApp.response.message == "invalidver")
+            if (ArcLicenseApp.response.message == "invalidver")
             {
-                if (!string.IsNullOrEmpty(LuffyAuthApp.app_data.downloadLink))
+                if (!string.IsNullOrEmpty(ArcLicenseApp.app_data.downloadLink))
                 {
                     DialogResult dialogResult = MessageBox.Show("Yes to open file in browser\nNo to download file automatically", "Auto update", MessageBoxButtons.YesNo);
                     switch (dialogResult)
                     {
                         case DialogResult.Yes:
-                            Process.Start(LuffyAuthApp.app_data.downloadLink);
+                            Process.Start(ArcLicenseApp.app_data.downloadLink);
                             Environment.Exit(0);
                             break;
                         case DialogResult.No:
@@ -75,7 +75,7 @@ namespace LuffyAuth
                             string rand = random_string();
 
                             destFile = destFile.Replace(".exe", $"-{rand}.exe");
-                            webClient.DownloadFile(LuffyAuthApp.app_data.downloadLink, destFile);
+                            webClient.DownloadFile(ArcLicenseApp.app_data.downloadLink, destFile);
 
                             Process.Start(destFile);
                             Process.Start(new ProcessStartInfo()
@@ -99,37 +99,37 @@ namespace LuffyAuth
             }
             #endregion
 
-	     if (!LuffyAuthApp.response.success)
+	     if (!ArcLicenseApp.response.success)
 	     {
-	        MessageBox.Show(LuffyAuthApp.response.message);
+	        MessageBox.Show(ArcLicenseApp.response.message);
 	        Environment.Exit(0);
 	     }
         }
         
         private async void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            await LuffyAuthApp.forgot(usernameField.Text, emailField.Text);
-            MessageBox.Show("Status: " + LuffyAuthApp.response.message);
+            await ArcLicenseApp.forgot(usernameField.Text, emailField.Text);
+            MessageBox.Show("Status: " + ArcLicenseApp.response.message);
         }
 
         private async void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            await LuffyAuthApp.upgrade(usernameField.Text, keyField.Text); // success is set to false so people can't press upgrade then press login and skip logging in. it doesn't matter, since you shouldn't take any action on succesfull upgrade anyways. the only thing that needs to be done is the user needs to see the message from upgrade function
-            MessageBox.Show("Status: " + LuffyAuthApp.response.message);
+            await ArcLicenseApp.upgrade(usernameField.Text, keyField.Text); // success is set to false so people can't press upgrade then press login and skip logging in. it doesn't matter, since you shouldn't take any action on succesfull upgrade anyways. the only thing that needs to be done is the user needs to see the message from upgrade function
+            MessageBox.Show("Status: " + ArcLicenseApp.response.message);
             // don't login, because they haven't authenticated. this is just to extend expiry of user with new key.
         }
 
         private async void loginBtn_Click_1(object sender, EventArgs e)
         {
-            await LuffyAuthApp.login(usernameField.Text, passwordField.Text, tfaField.Text);
-            if (LuffyAuthApp.response.success)
+            await ArcLicenseApp.login(usernameField.Text, passwordField.Text, tfaField.Text);
+            if (ArcLicenseApp.response.success)
             {
                 Main main = new Main();
                 main.Show();
                 this.Hide();
             }
             else
-                MessageBox.Show("Status: " + LuffyAuthApp.response.message);
+                MessageBox.Show("Status: " + ArcLicenseApp.response.message);
         }
 
         private async void registerBtn_Click(object sender, EventArgs e)
@@ -140,28 +140,28 @@ namespace LuffyAuth
                 email = null;
             }
 
-            await LuffyAuthApp.register(usernameField.Text, passwordField.Text, keyField.Text, email);
-            if (LuffyAuthApp.response.success)
+            await ArcLicenseApp.register(usernameField.Text, passwordField.Text, keyField.Text, email);
+            if (ArcLicenseApp.response.success)
             {
                 Main main = new Main();
                 main.Show();
                 this.Hide();
             }
             else
-                MessageBox.Show("Status: " + LuffyAuthApp.response.message);
+                MessageBox.Show("Status: " + ArcLicenseApp.response.message);
         }
 
         private async void licenseBtn_Click(object sender, EventArgs e)
         {
-            await LuffyAuthApp.license(keyField.Text, tfaField.Text);
-            if (LuffyAuthApp.response.success)
+            await ArcLicenseApp.license(keyField.Text, tfaField.Text);
+            if (ArcLicenseApp.response.success)
             {
                 Main main = new Main();
                 main.Show();
                 this.Hide();
             }
             else
-               MessageBox.Show("Status: " + LuffyAuthApp.response.message);
+               MessageBox.Show("Status: " + ArcLicenseApp.response.message);
         }
 
         private void closeBtn_Click(object sender, EventArgs e)

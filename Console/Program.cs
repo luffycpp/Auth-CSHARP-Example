@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace LuffyAuth
+namespace ArcLicense
 {
     class Program
     {
@@ -18,13 +18,13 @@ namespace LuffyAuth
         * 
         * WATCH THIS VIDEO TO SETUP APPLICATION: https://youtube.com/watch?v=RfDTdiBq4_o
         * 
-        * READ HERE TO LEARN ABOUT LUFFYAUTH FUNCTIONS
+        * READ HERE TO LEARN ABOUT ARCLICENSE FUNCTIONS
         *
         */
 
-        public static api LuffyAuthApp = new api(
+        public static api ArcLicenseApp = new api(
             name: "Testing", // Application Name
-            ownerid: "IzoQ0dyIkc", // Account ID
+            ownerid: "xrfNty6okO", // Account ID
             version: "1.0" // Application version
         );
 
@@ -45,13 +45,13 @@ namespace LuffyAuth
 
                 Console.Title = "Loader";
                 Console.WriteLine("\n\n Connecting..");
-                LuffyAuthApp.init();
+                ArcLicenseApp.init();
 
                 autoUpdate();
 
-                if (!LuffyAuthApp.response.success)
+                if (!ArcLicenseApp.response.success)
                 {
-                    Console.WriteLine("\n Status: " + LuffyAuthApp.response.message);
+                    Console.WriteLine("\n Status: " + ArcLicenseApp.response.message);
                     Thread.Sleep(1500);
                     TerminateProcess(GetCurrentProcess(), 1);
                 }
@@ -70,7 +70,7 @@ namespace LuffyAuth
                     password = Console.ReadLine();
                     Console.Write("\n\n Enter 2fa code: (not using 2fa? Just press enter) ");
                     code = Console.ReadLine();
-                    LuffyAuthApp.login(username, password, code);
+                    ArcLicenseApp.login(username, password, code);
                     break;
                 case 2:
                     Console.Write("\n\n Enter username: ");
@@ -81,16 +81,16 @@ namespace LuffyAuth
                     key = Console.ReadLine();
                     Console.Write("\n\n Enter email (just press enter if none): ");
                     email = Console.ReadLine();
-                    LuffyAuthApp.register(username, password, key, email);
+                    ArcLicenseApp.register(username, password, key, email);
                     break;
                 case 3:
                     Console.Write("\n\n Enter username: ");
                     username = Console.ReadLine();
                     Console.Write("\n\n Enter license: ");
                     key = Console.ReadLine();
-                    LuffyAuthApp.upgrade(username, key);
+                    ArcLicenseApp.upgrade(username, key);
                     // don't proceed to app, user hasn't authenticated yet.
-                    Console.WriteLine("\n Status: " + LuffyAuthApp.response.message);
+                    Console.WriteLine("\n Status: " + ArcLicenseApp.response.message);
                     Thread.Sleep(2500);
                     TerminateProcess(GetCurrentProcess(), 1);
                     break;
@@ -99,16 +99,16 @@ namespace LuffyAuth
                     key = Console.ReadLine();
                     Console.Write("\n\n Enter 2fa code: (not using 2fa? Just press enter");
                     code = Console.ReadLine();
-                    LuffyAuthApp.license(key, code);
+                    ArcLicenseApp.license(key, code);
                     break;
                 case 5:
                     Console.Write("\n\n Enter username: ");
                     username = Console.ReadLine();
                     Console.Write("\n\n Enter email: ");
                     email = Console.ReadLine();
-                    LuffyAuthApp.forgot(username, email);
+                    ArcLicenseApp.forgot(username, email);
                     // don't proceed to app, user hasn't authenticated yet.
-                    Console.WriteLine("\n Status: " + LuffyAuthApp.response.message);
+                    Console.WriteLine("\n Status: " + ArcLicenseApp.response.message);
                     Thread.Sleep(2500);
                     TerminateProcess(GetCurrentProcess(), 1);
                     break;
@@ -119,30 +119,30 @@ namespace LuffyAuth
                     break; // no point in this other than to not get error from IDE
             }
 
-            if (!LuffyAuthApp.response.success)
+            if (!ArcLicenseApp.response.success)
             {
-                Console.WriteLine("\n Status: " + LuffyAuthApp.response.message);
+                Console.WriteLine("\n Status: " + ArcLicenseApp.response.message);
                 Thread.Sleep(2500);
                 TerminateProcess(GetCurrentProcess(), 1);
             }
 
             Console.WriteLine("\n Logged In!"); // at this point, the client has been authenticated. Put the code you want to run after here
 
-            if(string.IsNullOrEmpty(LuffyAuthApp.response.message)) TerminateProcess(GetCurrentProcess(), 1);
+            if(string.IsNullOrEmpty(ArcLicenseApp.response.message)) TerminateProcess(GetCurrentProcess(), 1);
 
             // user data
             Console.WriteLine("\n User data:");
-            Console.WriteLine(" Username: " + LuffyAuthApp.user_data.username);
-            Console.WriteLine(" License: " + LuffyAuthApp.user_data.subscriptions[0].key); // this can be used if the user used a license, username, and password for register. It'll display the license assigned to the user
-            Console.WriteLine(" IP address: " + LuffyAuthApp.user_data.ip);
-            Console.WriteLine(" Hardware-Id: " + LuffyAuthApp.user_data.hwid);
-            Console.WriteLine(" Created at: " + UnixTimeToDateTime(long.Parse(LuffyAuthApp.user_data.createdate)));
-            if (!string.IsNullOrEmpty(LuffyAuthApp.user_data.lastlogin)) // don't show last login on register since there is no last login at that point
-                Console.WriteLine(" Last login at: " + UnixTimeToDateTime(long.Parse(LuffyAuthApp.user_data.lastlogin)));
+            Console.WriteLine(" Username: " + ArcLicenseApp.user_data.username);
+            Console.WriteLine(" License: " + ArcLicenseApp.user_data.subscriptions[0].key); // this can be used if the user used a license, username, and password for register. It'll display the license assigned to the user
+            Console.WriteLine(" IP address: " + ArcLicenseApp.user_data.ip);
+            Console.WriteLine(" Hardware-Id: " + ArcLicenseApp.user_data.hwid);
+            Console.WriteLine(" Created at: " + UnixTimeToDateTime(long.Parse(ArcLicenseApp.user_data.createdate)));
+            if (!string.IsNullOrEmpty(ArcLicenseApp.user_data.lastlogin)) // don't show last login on register since there is no last login at that point
+                Console.WriteLine(" Last login at: " + UnixTimeToDateTime(long.Parse(ArcLicenseApp.user_data.lastlogin)));
             Console.WriteLine(" Your subscription(s):");
-            for (var i = 0; i < LuffyAuthApp.user_data.subscriptions.Count; i++)
+            for (var i = 0; i < ArcLicenseApp.user_data.subscriptions.Count; i++)
             {
-                Console.WriteLine(" Subscription name: " + LuffyAuthApp.user_data.subscriptions[i].subscription + " - Expires at: " + UnixTimeToDateTime(long.Parse(LuffyAuthApp.user_data.subscriptions[i].expiry)) + " - Time left in seconds: " + LuffyAuthApp.user_data.subscriptions[i].timeleft);
+                Console.WriteLine(" Subscription name: " + ArcLicenseApp.user_data.subscriptions[i].subscription + " - Expires at: " + UnixTimeToDateTime(long.Parse(ArcLicenseApp.user_data.subscriptions[i].expiry)) + " - Time left in seconds: " + ArcLicenseApp.user_data.subscriptions[i].timeleft);
             }
 
             Console.Write("\n [1] Enable 2FA\n [2] Disable 2FA\n Choose option: ");
@@ -150,12 +150,12 @@ namespace LuffyAuth
             switch (tfaOptions)
             {
                 case 1:
-                    LuffyAuthApp.enable2fa();
+                    ArcLicenseApp.enable2fa();
                     break;
                 case 2:
                     Console.Write("Enter your 6 digit authorization code: ");
                     code = Console.ReadLine();
-                    LuffyAuthApp.disable2fa(code);
+                    ArcLicenseApp.disable2fa(code);
                     break;
                 default:
                     Console.WriteLine("\n\n Invalid Selection");
@@ -177,7 +177,7 @@ namespace LuffyAuth
 
         public static bool SubExist(string name)
         {
-            if(LuffyAuthApp.user_data.subscriptions.Exists(x => x.subscription == name))
+            if(ArcLicenseApp.user_data.subscriptions.Exists(x => x.subscription == name))
                 return true;
             return false;
         }
@@ -204,7 +204,7 @@ namespace LuffyAuth
                 {
                     Thread.Sleep(60000); // give people 1 minute to login
 
-                    ushort foundAtom = GlobalFindAtom(LuffyAuthApp.ownerid);
+                    ushort foundAtom = GlobalFindAtom(ArcLicenseApp.ownerid);
                     if (foundAtom == 0)
                     {
                         TerminateProcess(GetCurrentProcess(), 1);
@@ -244,9 +244,9 @@ namespace LuffyAuth
 
         static void autoUpdate()
         {
-            if (LuffyAuthApp.response.message == "invalidver")
+            if (ArcLicenseApp.response.message == "invalidver")
             {
-                if (!string.IsNullOrEmpty(LuffyAuthApp.app_data.downloadLink))
+                if (!string.IsNullOrEmpty(ArcLicenseApp.app_data.downloadLink))
                 {
                     Console.WriteLine("\n Auto update avaliable!");
                     Console.WriteLine(" Choose how you'd like to auto update:");
@@ -256,7 +256,7 @@ namespace LuffyAuth
                     switch (choice)
                     {
                         case 1:
-                            Process.Start(LuffyAuthApp.app_data.downloadLink);
+                            Process.Start(ArcLicenseApp.app_data.downloadLink);
                             Environment.Exit(0);
                             break;
                         case 2:
@@ -269,7 +269,7 @@ namespace LuffyAuth
                             string rand = random_string();
 
                             destFile = destFile.Replace(".exe", $"-{rand}.exe");
-                            webClient.DownloadFile(LuffyAuthApp.app_data.downloadLink, destFile);
+                            webClient.DownloadFile(ArcLicenseApp.app_data.downloadLink, destFile);
 
                             Process.Start(destFile);
                             Process.Start(new ProcessStartInfo()
